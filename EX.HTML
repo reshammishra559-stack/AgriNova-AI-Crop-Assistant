@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crop Diagnosis App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f4f7ec;
+      color: #1e4d2b;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 15px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #1e4d2b;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    section {
+      padding: 60px 20px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #1e4d2b;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+.image-container {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;; /* Optional: adjust as needed */
+}
+
+.image-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.home-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.hero-image-wrapper {
+  position: relative;
+  width:fit-content;
+  margin-left: auto;
+}
+
+
+
+.hero-image-wrapper .main-image {
+  width: 550px;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.hero-image-wrapper .overlap-image {
+  position: absolute;
+  margin-bottom: 250px;
+  margin-left: -40px;
+  width: 280px;
+  border-radius: 20px;
+  border: 4px solid white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    h1 {
+            font-size: 50px;
+            color: #1e4d2b;
+            text-shadow: 2px 2px #1e4d2b;
+            font-family: 'Playfair Display', serif;  /* Apply Playfair Display */
+            font-style: italic;  /* Italic text */
+            text-transform: capitalize; /* Capitalize each word */
+            text-align: center;
+            margin-top: 20px;
+        }
+    h2{
+        text-align: center;
+        color:#1e4d2b;
+    }   
+    .container {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 100%;
+      margin: auto;
+      margin-bottom: 40px;
+      border-radius: 10px;
+      flex-wrap: wrap;
+    }
+    .hero-title {
+      font-family: 'Georgia', serif;
+      font-weight: bold;
+      font-size: 32px;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .hero-title .line1 {
+      display: block;
+      font-size: 32px;
+    }
+
+    .hero-title .line2 {
+      display: block;
+      font-size: 36px;
+    }
+    .hero-text {
+  flex: 1;
+  padding: 20px;
+}
+
+    .hero-image-wrapper {
+      position: relative;
+      width: fit-content;
+    }
+
+    .main-image {
+      width: 550px;
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .overlap-image {
+      position: absolute;
+      top: 250px;
+      right: -40px;
+      width: 280px;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+    }
+
+    .steps-weather {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .step {
+      flex: 1;
+      text-align: center;
+      position: relative;
+      max-width: 200px;
+    }
+
+    .step img {
+      width: 50px;
+      display: block;
+      margin: 0 auto 10px;
+    }
+
+    .step::after {
+      font-size: 24px;
+      font-weight: bold;
+      color: #043d0d;
+      position: absolute;
+      right: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .step:last-child::after {
+      content: '';
+    }
+
+    .separator {
+      width: 80%;
+      height: 2px;
+      background: #ddd;
+      margin: 20px auto;
+    }
+    .market-ivr {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .feature {
+      text-align: center;
+      width: 200px;
+      margin-bottom: 80px;
+    }
+
+    .feature img {
+      width: 40px;
+      margin-bottom: 10px;
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: #1e4d2b;
+      color: white;
+      line-height: 60px;
+      border-radius: 50%;
+      margin: 0 auto 10px;
+      font-weight: bold;
+    }
+
+    /* Login Section */
+    #login {
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 100vh;
+    }
+
+    .left-side {
+      flex: 1;
+      background: url('image2.jpeg') no-repeat center center/cover;
+    }
+
+    .right-side {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 40px 20px;
+    }
+
+    .login-container {
+      width: 100%;
+      max-width: 350px;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      color: #2e7d32;
+      margin-bottom: 15px;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .login-button {
+      width: 100%;
+      background-color: #2e7d32;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .login-button:hover {
+      background-color: #1b5e20;
+    }
+
+    /* Contact Section */
+    #contact {
+      background: url('image7.jpg') no-repeat center center/cover;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contact-card {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 15px;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+    }
+
+    .contact-info i {
+      margin-right: 10px;
+      color: #27ae60;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 1.5rem;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #27ae60;
+    }
+    */
+    .chatbot-container {
+      width: 400px; margin: 60px auto; background: #fff;
+      border: 2px solid #4CAF50; border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .chatbot-container .header {
+      background: #4CAF50; color: white; padding: 16px;
+      border-radius: 10px 10px 0 0; text-align: center; font-size: 20px; font-weight: bold;
+    }
+    .chat-area {
+      height: 300px; padding: 16px; overflow-y: auto; background: #f9fdf9;
+    }
+    .chat-message { margin-bottom: 12px; }
+    .bot { background-color: #d1f5d3; padding: 10px; border-radius: 8px; max-width: 80%; }
+    .user { background-color: #cfe9ff; padding: 10px; border-radius: 8px; max-width: 80%; margin-left: auto; }
+    .input-area {
+      display: flex; padding: 16px; border-top: 1px solid #ccc;
+    }
+    .input-area input {
+      flex: 1; padding: 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 16px;
+    }
+    .input-area button {
+      background: #4CAF50; color: white; border: none; padding: 10px 16px; margin-left: 8px;
+      border-radius: 6px; cursor: pointer;
+    }
+
+    footer { text-align: center; padding: 20px; font-size: 14px; color: #aaa; }
+
+    @media (max-width: 768px) {
+      .step { flex: 1 1 100%; }
+      .landing-section { flex-direction: column; height: auto; }
+      .left, .right { width: 100%; height: auto; }
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #e5e5e5;
+      color: #555;
+    }
+    @media (max-width: 768px) {
+  .home-content h1 {
+    font-size: 28px;
+  }
+
+  .home-content p {
+    font-size: 16px;
+  }
+}
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .home-content h1 { font-size: 36px; }
+      nav { gap: 10px; }
+      .left-side, .right-side {
+        width: 100%;
+        height: 50vh;
+      }
+      .feature, .step {
+        flex: 1 1 100%;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .home-content h1 { font-size: 28px; }
+      .step-number {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#home">HOME</a>
+    <a href="#about">ABOUT</a>
+    <a href="#how">HOW IT WORKS</a>
+    <a href="#login">LOGIN</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+
+
+  <section class="image-container">
+   <img src="image1.png.jpg" alt="Crop Image">
+    <div class="home-content">
+      <h1><center>Welcome to AgriNova</center></h1>
+      <p>Your AI-powered crop assistant</p>
+    </div>
+  </section>
+  
+  <div class="container">
+    <div class="hero">
+      <div class="hero-text">
+        <h2 style="text-align: center;">Features and Functionality</h2>
+          <h3>&bull;AI-powered crop diagnosis</h3>
+          <h3>&bull;Real-time disease detection</h3>
+          <h3>&bull;Weather and market updates</h3>
+          <h3>&bull;IVR and call support</h3>
+          <h3>&bull;Step-by-step treatment suggestions</h3>
+      </div>
+
+      <div class="hero-image-wrapper">
+        <img class="main-image" src="image5.jpeg" alt="Farmer using tablet in field" />
+        <img class="overlap-image" src="image4.jpeg" alt="Overlay Icon" />
+      </div>
+    </div>
+    <!-- "How It Works" heading placed here -->
+    <p >HOW IT'S WORK</p>
+
+    <div class="steps-weather">
+      <div class="step">
+        <img src="p1.jpg" alt="Step 1 Logo" />
+        <h3>Step 1</h3>
+        <p>Mobile Image Capture</p>
+      </div>
+      <div class="step">
+        <img src="step2.png" alt="Step 2 Logo" />
+        <h3>Step 2</h3>
+        <p>Disease Analysis</p>
+      </div>
+      <div class="step">
+        <img src="c2.png" alt="Step 3 Logo" />
+        <h3>Step 3</h3>
+        <p>Result & Suggestion</p>
+      </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="market-ivr">
+      <div class="feature">
+        <img src="t.png" alt="Market Price Icon" />
+        <h3>Market Price</h3>
+        <p>Latest crop prices</p>
+      </div>
+      <div class="feature">
+        <img src="p1.jpg" alt="IVR Icon" />
+        <h3>IVR</h3>
+        <p>Assist through IVR</p>
+      </div>
+      <div class="feature">
+        <img src="w.png" alt="Weather Icon" />
+        <h3>Weather Prediction</h3>
+        <p>28° Sunny</p>
+      </div>
+      <div class="feature">
+        <img src="c1.png" alt="Call Icon" />
+        <h3>Call Support</h3>
+        <p>24/7 Assistance</p>
+      </div>
+    </div>
+  </div>
+
+<!-- HOW IT WORKS SECTION --->
+<section id="how" style="background-color: #e5e5e5;">
+  <div class="outer-box" style="max-width: 1200px; margin: 0 auto; border-radius: 16px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); padding: 20px 0; background-color: white;">
+    <header style="background-color: #1e4d2b; color: white; padding: 20px 0; text-align: center; border-top-left-radius: 16px; border-top-right-radius: 16px;">
+      <h3 style="font-family: 'Playfair Display', serif; font-size: 36px; margin: 0;">HOW IT WORKS</h3>
+    
+    </div>
+    </header>
+
+    <div class="container" style="max-width: 1100px; margin: 40px auto; padding: 0 20px;">
+      <div class="intro" style="text-align: center; margin-bottom: 40px;">
+        <p style="font-size: 18px; line-height: 1.6; color: #333;">
+          Our Crop Diagnosis tool helps you identify crop threats by analyzing cultivation details and problem symptoms. Simply follow the steps below to get recommendations and treatment solutions tailored to your situation.
+        </p>
+      </div>
+
+     
+      <div class="steps-weather" style="display:flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-bottom: 30px;">
+       <div class="step" style="flex: 1 1 45%; min-width:300px; max-width: 600px; background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); text-align: center;">
+          <div class="step-number" style="position: absolute; transform: translateX(-50%); left: 50%; top: -20px; width: 42px; height: 42px; line-height: 42px; background: #1e4d2b; color: white; border-radius: 50%; font-weight: bold; font-size: 18px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">1</div>
+          <h3 style="color: #1e4d2b; margin-top: 30px;">Describe Your Cultivation</h3>
+          <p>Enter crop details like type, location, soil condition, and threat characteristics to begin the diagnosis.</p>
+        
+          <img src="m1.png" alt="Describe Cultivation" style="width: 250px;height:500px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+        </div>
+
+
+        <div class="step" style="flex: 1 1 45%; min-width: 300px; max-width: 600px; background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); text-align: center;">
+          <div class="step-number" style="position: absolute; transform: translateX(-50%); left: 50%; top: -20px; width: 42px; height: 42px; line-height: 42px; background: #1e4d2b; color: white; border-radius: 50%; font-weight: bold; font-size: 18px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">2</div>
+          <h3 style="color: #1e4d2b; margin-top: 30px;">Answer a Few Questions</h3>
+          <p>Respond to a smart questionnaire that helps the system identify the issue accurately.</p>
+          <img src="m3.jpg" alt="Questionnaire" style="width:250px; height:500px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);;">
+        </div>
+      </div>
+
+       
+      <div class="steps-weather" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+        <div class="step" style="flex: 1 1 45%; min-width: 300px; max-width: 500px; background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); text-align: center;">
+          <div class="step-number" style="position: absolute; transform: translateX(-50%); left: 50%; top: -20px; width: 42px; height: 42px; line-height: 42px; background: #1e4d2b; color: white; border-radius: 50%; font-weight: bold; font-size: 18px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">3</div>
+          <h3 style="color: #1e4d2b; margin-top: 30px;">Choose a Recommended Product</h3>
+          <p>See a list of treatments or chemicals tailored to your crop and issue.</p>
+          <img src="m3.jpg" alt="Product List" style="width: 250px; height: 500px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
+        </div>
+
+        <div class="step" style="flex: 1 1 45%; min-width: 300px; max-width: 500px; background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); text-align: center;">
+          <div class="step-number" style="position: absolute; transform: translateX(-50%); left: 50%; top: -20px; width: 42px; height: 42px; line-height: 42px; background: #1e4d2b; color: white; border-radius: 50%; font-weight: bold; font-size: 18px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">4</div>
+          <h3 style="color: #1e4d2b; margin-top: 30px;">Follow Application Instructions</h3>
+          <p>Get step-by-step instructions for the selected product for best results.</p>
+          <img src="m4.jpg" alt="Application Guide" style="width:250px; height:500px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);;">
+        </div>
+      </div>
+    </div>
+
+    <footer style="text-align: center; padding: 20px; font-size: 14px; color: #aaa; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; background-color: #f5f5f5;">
+      &copy; 2025 Crop Diagnosis App | Built with care 🌱
+    </footer>
+  </div>
+</section>
+  <!-- LOGIN SECTION -->
+  <section id="login">
+    <div class="left-side"></div>
+    <div class="right-side">
+      <div class="login-container">
+        <h2>AgriNova</h2>
+        <p>Welcome, please login to your account</p>
+        <input type="text" id="username" class="input-field" placeholder="Username or email">
+        <input type="password" id="password" class="input-field" placeholder="Password">
+        <button class="login-button" onclick="login()">Login</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="contact-card">
+      <h2>Contact Us</h2>
+      <div class="contact-info">
+        <p><i class="fas fa-phone-alt"></i> Call Us: 123456</p>
+        <p><i class="fas fa-envelope"></i> Email: example@gmail.com</p>
+        <p><i class="fas fa-globe"></i> Visit: <a href="#" style="color: #fff;">www.cropdetectionwebsite.com</a></p>
+        <p><i class="fas fa-chart-line"></i> Market Price: Live Market Info</p>
+        <p><i class="fas fa-cloud-sun"></i> Weather Prediction: Accurate Forecast</p>
+      </div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </section>
+  
+  <div class="chatbot-container">
+    <div class="header">AgriBot 🌱</div>
+    <div class="chat-area" id="chat-area">
+      <div class="chat-message bot">Hello! I'm AgriBot. Ask me anything about crops or plant diseases.</div>
+    </div>
+    <div class="input-area">
+      <input type="text" id="user-input" placeholder="Type your question...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Crop Diagnosis App | All rights reserved
+  </footer>
+
+  <script>
+    function login() {
+      alert('Login functionality coming soon!');
+    }
+  </script>
+
+<script>
+  function sendMessage() {
+    const userInput = document.getElementById('user-input');
+    const chatArea = document.getElementById('chat-area');
+
+    const userMsg = document.createElement('div');
+    userMsg.classList.add('chat-message', 'user');
+    userMsg.textContent = userInput.value;
+    chatArea.appendChild(userMsg);
+
+    const botMsg = document.createElement('div');
+    botMsg.classList.add('chat-message', 'bot');
+    botMsg.textContent = "I'm still learning. I'll get back to you soon! 🌾";
+    chatArea.appendChild(botMsg);
+
+    userInput.value = '';
+    chatArea.scrollTop = chatArea.scrollHeight;
+  }
+</script>
+
+</body>
+</html>
